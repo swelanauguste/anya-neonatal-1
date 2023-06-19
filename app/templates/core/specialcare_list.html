@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container">
+    <a href="{% url 'specialcare-create' %}">add</a>
+    <ol>
+        {% for ob in object_list %}
+        <li>{{ob}}</li>
+        {% empty %}
+        <p class="text-center">No records</p>
+        {% endfor %}
+    </ol>
+</div>
+{% endblock content %}

@@ -1,0 +1,524 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<p class="container p-5"><a href="list/">List</a></p>
+<div class="col-lg-6 mx-auto py-5 small">
+    <form action=""
+        method="post">
+        {% csrf_token %}
+        <section class="bg-info bg-opacity-10 p-5 rounded-4 shadow mb-4">
+            <div class="row">
+                <h3 class="bg-dark text-white fw-bold px-3">
+                    NEONATAL
+                    SPECIAL CARE FORM CLAP/WR-PAHO/WHO</h3>
+            </div>
+            <br>
+            <div class="col-lg-1 row">
+                {{ form.sip|as_crispy_field }}
+            </div>
+            <div class="row">
+                <div class="col-lg">
+                    {{ form.pob|as_crispy_field }}
+                </div>
+            </div>
+            <hr><br>
+            <div class="row">
+                <div class="col-lg">
+                    {{ form.name|as_crispy_field }}
+                </div>
+            </div>
+            <div class="col-lg-1 row">
+                {{ form.id_band|as_crispy_field }}
+            </div>
+            <div class="row">
+                <div class="col-lg">
+                    {{ form.neo_record_no|as_crispy_field }}
+                </div>
+            </div>
+            <hr><br>
+            <div class="row">
+                <div class="col-lg">
+                    {{ form.mother_name|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg">
+                    {{ form.mat_record_no|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {{ form.stays_at|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {{ form.health_status|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {{ form.idd_new_born|as_crispy_field }}
+                </div>
+            </div>
+            <hr><br>
+            <div class="row">
+                <div class="col">
+                    {{ form.father_name|as_crispy_field }}
+                    <div class="row">
+                        <div class="col">
+                            {{ form.father_addr|as_crispy_field }}
+                        </div>
+                        <div class="col-lg-5">
+
+                            {{ form.father_email|as_crispy_field }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    {{ form.father_phone|as_crispy_field }}
+                </div>
+            </div>
+        </section>
+        <section class="bg-info bg-opacity-10 p-5 rounded-4 shadow mb-4">
+            <div class="row">
+                <div class="col">
+                    <h3 class="bg-dark text-white fw-bold px-3">
+                        TRANSPORT
+                    </h3>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    {{ form.trans_from|as_crispy_field }}
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        {{ form.trans_reason|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ form.transport_type|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2">
+                        {{ form.trans_km|as_crispy_field }}
+                    </div>
+                    <div class="col-lg-2">
+                        {{ form.trans_dura|as_crispy_field }}
+                    </div>
+                </div>
+                <hr><br>
+                <div class="row">
+                    <div class="col-lg">
+                        {{ form.incubator|as_crispy_field }}
+                    </div>
+                    <div class="col-lg">
+                        {{ form.monitors|as_crispy_field }}
+                    </div>
+                    <div class="col-lg">
+                        {{ form.oxygen|as_crispy_field }}
+                    </div>
+                    <div class="col-lg">
+                        {{ form.cpap|as_crispy_field }}
+                    </div>
+                    <div class="col-lg">
+                        {{ form.ettube|as_crispy_field }}
+                    </div>
+                </div>
+                <hr><br>
+                <div class="row">
+                    <div class="col-lg-2">
+                        {{ form.iv|as_crispy_field }}
+                    </div>
+                    <div class="col-lg-4">
+                        {{ form.iv_vol|as_crispy_field }}
+                    </div>
+                    <div class="col-lg-4">
+                        {{ form.iv_type|as_crispy_field }}
+                    </div>
+                </div>
+                <hr><br>
+                <div class="row">
+                    <div class="col-lg-2">
+                        {{ form.is_drugged|as_crispy_field }}
+                    </div>
+                    <div class="col-lg-4">
+                        {{ form.drugs|as_crispy_field }}
+                    </div>
+                </div>
+                <hr><br>
+                <div class="row">
+                    <div class="col-lg">
+                        {{ form.trans_comp|as_crispy_field }}
+                    </div>
+                </div>
+        </section>
+        <section class="bg-info bg-opacity-10 p-5 rounded-4 shadow mb-4">
+            <div class="row">
+                <div class="col">
+                    <h2 class="bg-dark text-white fw-bold px-3">
+                        ADMISSION TO SPECIAL CARE
+                    </h2>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                {{ form.admin_to|as_crispy_field }}
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    {{ form.nurse|as_crispy_field }}
+                </div>
+                <div class="col">
+                    {{ form.doctor|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg">
+                    {{ form.admin_date_time|as_crispy_field }}
+                </div>
+                <div class="col-lg">
+                    {{ form.admin_age|as_crispy_field }}
+                </div>
+                <div class="col-lg">
+                    {{ form.gest_age|as_crispy_field }}
+                </div>
+            </div><br>
+            <h5 class="bg-secondary text-white px-3 py-1">1st
+                Assessment</h5>
+            <br>
+            <div class="row">
+                <div class="col-lg">
+                    {{ form.ax_temp|as_crispy_field }}
+                </div>
+                <div class="col-lg">
+                    {{ form.sa02|as_crispy_field }}
+                </div>
+                <div class="col-lg">
+                    {{ form.fio2|as_crispy_field }}
+                </div>
+            </div>
+            <hr><br>
+            <div class="row">
+                <div class="col-lg">
+                    {{ form.cyano|as_crispy_field }}
+                </div>
+                <div class="col-lg">
+                    {{ form.rds|as_crispy_field }}
+                </div>
+                <div class="col-lg">
+                    {{ form.pale|as_crispy_field }}
+                </div>
+                <div class="col-lg">
+                    {{ form.diur|as_crispy_field }}
+                </div>
+                <div class="col-lg">
+                    {{ form.alert|as_crispy_field }}
+                </div>
+                <div class="col-lg">
+                    {{ form.seizures|as_crispy_field }}
+                </div>
+            </div>
+            <hr><br>
+            <div class="row">
+                <div class="col-lg">
+                    {{ form.weight|as_crispy_field }}
+                </div>
+                <div class="col-lg">
+                    {{ form.length|as_crispy_field }}
+                </div>
+                <div class="col-lg">
+                    {{ form.head_c|as_crispy_field }}
+                </div>
+            </div>
+        </section>
+        <section class="bg-info bg-opacity-10 p-5 rounded-4 shadow mb-4">
+            <div class="row">
+                <div class="col">
+                    <h2 class="bg-dark text-white fw-bold px-3">
+                        NOTES AT ADMISSION
+                    </h2>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-5 mx-auto">
+                    <h4>Maternal data</h4>
+                    {{ form.age|as_crispy_field }}
+                    {{ form.address|as_crispy_field }}
+                    {{ form.parity|as_crispy_field }}
+                    {{ form.lmp|as_crispy_field }}
+                    {{ form.edd|as_crispy_field }}
+                    {{ form.ga|as_crispy_field }}
+                    {{ form.hep_b|as_crispy_field }}
+                    {{ form.hiv|as_crispy_field }}
+                    {{ form.vdrl|as_crispy_field }}
+                    {{ form.rub|as_crispy_field }}
+                    {{ form.hb_elec|as_crispy_field }}
+                    {{ form.gp_rh|as_crispy_field }}
+                    {{ form.anc|as_crispy_field }}
+                </div>
+                <div class="col-lg-5 mx-auto">
+                    <h4>Neonatal data</h4>
+                    {{ form.dob|as_crispy_field }}
+                    {{ form.tob|as_crispy_field }}
+                    {{ form.gender|as_crispy_field }}
+                    {{ form.apgars|as_crispy_field }}
+                    {{ form.bwt|as_crispy_field }}
+                    {{ form.hc|as_crispy_field }}
+                    {{ form.length|as_crispy_field }}
+                    {{ form.delivery_type|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">
+                {{ form.first_report|as_crispy_field }}
+            </div>
+        </section>
+        <section class="bg-info bg-opacity-10 p-5 rounded-4 shadow mb-4">
+            <div class="row">
+                <div class="col">
+                    <h2 class="bg-dark text-white fw-bold px-3">
+                        DISEASES
+                    </h2>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-5 mx-auto">
+                    <br><br>
+                    {{ form.diseases|as_crispy_field }}
+                    {{ form.birth_asp|as_crispy_field }}
+                    {{ form.hmd|as_crispy_field }}
+                    {{ form.rds_meconium|as_crispy_field }}
+                    {{ form.pphn|as_crispy_field }}
+                    {{ form.pda|as_crispy_field }}
+                    {{ form.apneas|as_crispy_field }}
+                </div>
+                <div class="col-lg-5 mx-auto">
+                    <h4>SEPSIS</h4>
+                    {{ form.pneum|as_crispy_field }}
+                    {{ form.bpd|as_crispy_field }}
+                    {{ form.nec|as_crispy_field }}
+                    {{ form.sbp|as_crispy_field }}
+                    {{ form.syp|as_crispy_field }}
+                    {{ form.per_hiv|as_crispy_field }}
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <h4>SEPSIS</h4>
+                <div class="row">
+                    <div class="col-lg">
+                        {{ form.sepsis_yes_no|as_crispy_field }}
+                    </div>
+                    <div class="col-lg">
+                        {{ form.sepsis_date_treated|as_crispy_field }}
+
+                    </div>
+                    <div class="col-lg">
+                        {{ form.sepsis_agent|as_crispy_field }}
+
+                    </div>
+                    <div class="col-lg">
+                        {{ form.sepsis_no_agent|as_crispy_field }}
+
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-lg">
+                        {{ form.sepsis1_yes_no|as_crispy_field }}
+                    </div>
+                    <div class="col-lg">
+                        {{ form.sepsis1_date_treated|as_crispy_field }}
+
+                    </div>
+                    <div class="col-lg">
+                        {{ form.sepsis1_agent|as_crispy_field }}
+
+                    </div>
+                    <div class="col-lg">
+                        {{ form.sepsis1_no_agent|as_crispy_field }}
+
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-lg">
+                        {{ form.sepsis2_yes_no|as_crispy_field }}
+                    </div>
+                    <div class="col-lg">
+                        {{ form.sepsis2_date_treated|as_crispy_field }}
+
+                    </div>
+                    <div class="col-lg">
+                        {{ form.sepsis2_agent|as_crispy_field }}
+
+                    </div>
+                    <div class="col-lg">
+                        {{ form.sepsis2_no_agent|as_crispy_field }}
+
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-lg">
+                        {{ form.sepsis3_yes_no|as_crispy_field }}
+                    </div>
+                    <div class="col-lg">
+                        {{ form.sepsis3_date_treated|as_crispy_field }}
+
+                    </div>
+                    <div class="col-lg">
+                        {{ form.sepsis3_agent|as_crispy_field }}
+
+                    </div>
+                    <div class="col-lg">
+                        {{ form.sepsis3_no_agent|as_crispy_field }}
+
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 mx-auto px-5">
+                    <h4 class="text-center border-bottom border-dark">ROP</h4>
+                    <br>
+                    {{ form.ind_opht|as_crispy_field }}
+                    {{ form.first_exam_corrected_ga|as_crispy_field }}
+                    {{ form.rop_max_grade|as_crispy_field }}
+                    {{ form.surg_ind|as_crispy_field }}
+                </div>
+                <div class="col-lg-5 mx-auto px-5">
+                    <h4 class="text-center border-bottom border-dark">BRAIN
+                    </h4>
+                    <br>
+                    {{ form.us_scan|as_crispy_field }}
+                    {{ form.leukom|as_crispy_field }}
+                    {{ form.intra_hemo|as_crispy_field }}
+                    {{ form.brain_max_grade|as_crispy_field }}
+                    {{ form.birth_asph_seiz|as_crispy_field }}
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <h4>Other</h4>
+                <div class="col-lg">
+                    {{ form.other|as_crispy_field }}
+                </div>
+                <div class="col-lg">
+                    {{ form.other1|as_crispy_field }}
+                </div>
+                <div class="col-lg">
+                    {{ form.other2|as_crispy_field }}
+                </div>
+                <div class="col-lg">
+                    {{ form.sev_cog_def|as_crispy_field }}
+                </div>
+            </div>
+        </section>
+        <section class="bg-info bg-opacity-10 p-5 rounded-4 shadow mb-4">
+            <div class="row">
+                <div class="col">
+                    <h2 class="bg-dark text-white fw-bold px-3 shadow">
+                        INTERVENTIONS
+                    </h2>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg">
+                    {{ form.surf_cnt|as_crispy_field }}
+                </div>
+                <div class="col-lg">
+                    {{ form.surf_cnt_age_first_dose|as_crispy_field }}
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                {{ form.pda_proph_indom|as_crispy_field }}
+                {{ form.indo_treat|as_crispy_field }}
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-lg">
+                    {{ form.teoph_cafeine|as_crispy_field }}
+                </div>
+                <div class="col-lg">
+                    {{ form.teoph_cafeine_days|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg">
+                    {{ form.parent_nutn|as_crispy_field }}
+                </div>
+                <div class="col-lg">
+                    {{ form.parent_nut_days|as_crispy_field }}
+                </div>
+            </div>
+            <br>
+            <h5 class="bg-secondary text-white px-3 py-1">
+                RESPIRATORY SUPPORT</h5>
+            <br>
+            <div class="row">
+                <div class="col-lg">
+                    {{ form.pre_vent_ncpap|as_crispy_field }}
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-lg">
+                    {{ form.imv_ettube|as_crispy_field }}
+                </div>
+                <div class="col-lg">
+                    {{ form.imv_ettube_days_hrs|as_crispy_field }}
+                </div>
+                <div class="col-lg"></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-lg">
+                    {{ form.ncpap|as_crispy_field }}
+                </div>
+                <div class="col-lg">
+                    {{ form.ncpap_days|as_crispy_field }}
+                </div>
+                <div class="col-lg"></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-lg">
+                    {{ form.res_supp_oxygen|as_crispy_field }}
+                </div>
+                <div class="col-lg">
+                    {{ form.res_supp_oxygen_days|as_crispy_field }}
+                </div>
+                <div class="col-lg">
+                    {{ form.ox_over_28_days|as_crispy_field }}
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-lg">
+                    {{ form.blood_prods|as_crispy_field }}
+                </div>
+                <div class="col-lg">
+                    {{ form.blood_prods_vol|as_crispy_field }}
+                </div>
+                <div class="col-lg"></div>
+            </div>
+        </section>
+        <br>
+        <hr><br>
+        <input class="btn btn-outline-dark px-5 rounded-pill"
+            type="submit"
+            value="Submit">
+    </form>
+</div>
+{% endblock content %}
