@@ -3,7 +3,8 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<p class="container p-5"><a href="list/">List</a></p>
+<p class="container p-5">
+    <a class="btn btn-info" href="{% url 'specialcare-list' %}">List</a></p>
 <div class="col-lg-6 mx-auto py-5 small">
     <form action=""
         method="post">

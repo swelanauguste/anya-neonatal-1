@@ -2,8 +2,8 @@
 
 
 {% block content %}
-<div class="container">
-    <a href="{% url 'specialcare-create' %}">add</a>
+<div class="container p-5">
+    <a class="btn btn-info" href="{% url 'specialcare-create' %}">add</a>
     <ol>
         {% for ob in object_list %}
         <li>{{ob}}</li>
