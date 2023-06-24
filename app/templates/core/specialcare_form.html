@@ -513,12 +513,322 @@
                 </div>
                 <div class="col-lg"></div>
             </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <h5 class="bg-secondary text-white px-3 py-1">
+                        SURGERY</h5>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg">
+                    {{ form.surg_pda|as_crispy_field }}
+                </div>
+                <div class="col-lg">
+                    {{ form.surg_nec|as_crispy_field }}
+                </div>
+                <div class="col-lg">
+                    {{ form.surg_rop|as_crispy_field }}
+                </div>
+                <div class="col-lg">
+                    {{ form.surg_vp_sht|as_crispy_field }}
+                </div>
+                <div class="row">
+                    <div class="col-lg-2">
+                        {{ form.surg_other|as_crispy_field }}
+                    </div>
+                    <div class="col-lg-4">
+                        {{ form.surg_other_details|as_crispy_field }}
+                    </div>
+                </div>
+                <br><br>
+                <div class="row">
+                    <div class="col">
+                        <h5 class="bg-secondary text-white px-3 py-1">
+                            GROWTH</h5>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-lg">
+                        {{ form.lowest_weight|as_crispy_field }}
+                    </div>
+                    <div class="col-lg">
+                        {{ form.age_at_bw_recv|as_crispy_field }}
+                    </div>
+                    <div class="col-lg">
+                        {{ form.at_36_wks_ga|as_crispy_field }}
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="bg-secondary text-white px-3 py-1">
+                                ANTHROPOMETRY AT DISCHARGE</h5>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-lg">
+                        {{ form.anthy_dschrg_weight|as_crispy_field }}
+                    </div>
+                    <div class="col-lg">
+                        {{ form.anthy_dschag_length|as_crispy_field }}
+                    </div>
+                    <div class="col-lg">
+                        {{ form.anthy_dschag_head_cir|as_crispy_field }}
+                    </div>
+                </div>
         </section>
-        <br>
+        <section class="bg-info bg-opacity-10 p-5 rounded-4 shadow mb-4">
+            <div class="row">
+                <div class="col">
+                    <h2 class="bg-dark text-white fw-bold px-3 shadow">
+                        DISCHARGE
+                    </h2>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="row">
+                    <div class="col-lg-2">
+                        {{ form.dschrg|as_crispy_field }}
+                    </div>
+                    <div class="col-lg-4">
+                        {{ form.dschrg_details|as_crispy_field }}
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <p>DEAD</p>
+                    <div class="col-lg">
+                        {{ form.dschrg_post_mort|as_crispy_field }}
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <p>TRANSFER</p>
+                    <div class="col-lg">
+                        {{ form.dschrg_trans_plc|as_crispy_field }}
+                    </div>
+                    <div class="col-lg">
+                        {{ form.dschrg_trans_dies|as_crispy_field }}
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <p>AGE</p>
+                <div class="row">
+                    <div class="col-lg-4">
+                        {{ form.dschrg_age|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2">
+                        {{ form.dschrg_age_less_one_day|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        {{ form.dschrg_gest_age_correct|as_crispy_field }}
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <p>FEEDING</p>
+                <div class="col-lg">
+
+                    {{ form.dschrg_feeding|as_crispy_field }}
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <p>ROOMING-IN PREVIOUS DAY</p>
+                <div class="col-lg">
+                    {{ form.dschrg_room_in|as_crispy_field }}
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <p>HOME AT DISCHARGE</p>
+                <div class="col-lg">
+                    {{ form.dschrg_at_home|as_crispy_field }}
+                </div>
+            </div>
+        </section>
+        <section class="bg-info bg-opacity-10 p-5 rounded-4 shadow mb-4">
+            <div class="row">
+                <div class="col">
+                    <h2 class="bg-dark text-white fw-bold px-3 shadow">
+                        SCREENING TEST/IMMUNIZATIONS
+                    </h2>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="row">
+                    <div class="col-lg">
+                        {{ form.scrn_tst_syph|as_crispy_field }}
+                    </div>
+                    <div class="col-lg">
+                        {{ form.scrn_tst_tsh|as_crispy_field }}
+                    </div>
+                    <div class="col-lg">
+                        {{ form.scrn_tst_hear|as_crispy_field }}
+                    </div>
+                    <div class="col-lg">
+                        {{ form.scrn_tst_sickle|as_crispy_field }}
+                    </div>
+                    <div class="col-lg">
+                        {{ form.scrn_tst_bcg|as_crispy_field }}
+                    </div>
+                    <div class="col-lg">
+                        {{ form.scrn_tst_hep_b|as_crispy_field }}
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <p>HEALTH PROMOTION (Subjects covered)</p>
+                    <div class="col-lg">
+                        {{ form.h_prom_brst_feed|as_crispy_field }}
+                    </div>
+                    <div class="col-lg">
+                        {{ form.h_prom_bck_slp|as_crispy_field }}
+                    </div>
+                    <div class="col-lg">
+                        {{ form.h_prom_resp_prev|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg">
+                        {{ form.h_prom_hand_hygn|as_crispy_field }}
+                    </div>
+                    <div class="col-lg">
+                        {{ form.h_prom_scl_prot|as_crispy_field }}
+                    </div>
+                    <div class="col-lg">
+                        {{ form.h_prom_edu_mat|as_crispy_field }}
+                    </div>
+                    <div class="row">
+                        <div class="col-lg">
+                            {{ form.health_prom_details|as_crispy_field }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bg-info bg-opacity-10 p-5 rounded-4 shadow mb-4">
+            <div class="row">
+                <div class="col">
+                    <h2 class="bg-dark text-white fw-bold px-3 shadow">
+                        DISCHARGE INDICATIONS
+                    </h2>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="row">
+                    <div class="col-lg">
+                        {{ form.dschrg_ind_prscrb_by|as_crispy_field }}
+                    </div>
+                    <div class="col-lg">
+                        {{ form.dschrg_ind_prscrb_phn|as_crispy_field }}
+                    </div>
+                    <div class="col-lg">
+                        {{ form.dschrg_ind_prscrb_email|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg">
+                        {{ form.dschrg_ind_prscrb_details|as_crispy_field }}
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bg-info bg-opacity-10 p-5 rounded-4 shadow mb-4">
+            <div class="row">
+                <div class="col">
+                    <h2 class="bg-dark text-white fw-bold px-3 shadow">
+                        FOLLOW UP (scheduled)
+                    </h2>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="row">
+                    <div class="col-lg">
+                        {{ form.follow_up_ped|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="col-lg">
+                    {{ form.follow_up_ped_plc|as_crispy_field }}
+                </div>
+                <div class="col-lg-3">
+                    {{ form.follow_up_ped_phn|as_crispy_field }}
+                </div>
+                <div class="col-lg-2">
+                    {{ form.follow_up_ped_dt|as_crispy_field }}
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="row">
+                    <div class="col-lg">
+                        {{ form.follow_up_eye|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="col-lg">
+                    {{ form.follow_up_eye_plc|as_crispy_field }}
+                </div>
+                <div class="col-lg-3">
+                    {{ form.follow_up_eye_phn|as_crispy_field }}
+                </div>
+                <div class="col-lg-2">
+                    {{ form.follow_up_eye_dt|as_crispy_field }}
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="row">
+                    <div class="col-lg">
+                        {{ form.follow_up_hear|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="col-lg">
+                    {{ form.follow_up_hear_plc|as_crispy_field }}
+                </div>
+                <div class="col-lg-3">
+                    {{ form.follow_up_hear_phn|as_crispy_field }}
+                </div>
+                <div class="col-lg-2">
+                    {{ form.follow_up_hear_dt|as_crispy_field }}
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="row">
+                    <div class="col-lg">
+                        {{ form.follow_up_psych|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="col-lg">
+                    {{ form.follow_up_psych_plc|as_crispy_field }}
+                </div>
+                <div class="col-lg-3">
+                    {{ form.follow_up_psych_phn|as_crispy_field }}
+                </div>
+                <div class="col-lg-2">
+                    {{ form.follow_up_psych_dt|as_crispy_field }}
+                </div>
+            </div>
+            <hr>
+        </section>
         <hr><br>
-        <input class="btn btn-outline-dark px-5 rounded-pill"
-            type="submit"
-            value="Submit">
+        <div class="d-grid">
+            <input class="btn btn-info px-5 rounded-pill"
+                type="submit"
+                value="Submit">
+        </div>
     </form>
 </div>
 {% endblock content %}

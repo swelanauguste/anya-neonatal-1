@@ -15,7 +15,6 @@ YES_NO_CHOICES = (
     (NO, "No"),
 )
 
-NORMAL = "N"
 COMA = "C"
 ALERTNESS_CHOICES = (
     (NORMAL, "Normal"),
@@ -93,6 +92,121 @@ BRAIN_MAX_GRADE_CHOICES = (
     (TWO, "2"),
     (THREE, "3"),
     (FOUR, "4"),
+)
+
+LIVE = "L"
+DEAD = "D"
+TRANSFER = "T"
+DISCHARGE_CHOICES = (
+    (LIVE, "Live"),
+    (DEAD, "Dead"),
+    (TRANSFER, "Transfer"),
+)
+
+BREAST = "B"
+PARTIAL = "P"
+FORMULA = "F"
+FEEDING_CHOICES = (
+    (BREAST, "Breast"),
+    (PARTIAL, "Partial"),
+    (FORMULA, "Formula"),
+)
+
+DAY_NIGHT = "DN"
+DAY = "D"
+VISIT = "V"
+NONE = "N"
+ROOMING_IN_CHOICES = (
+    (DAY_NIGHT, "Day and night"),
+    (DAY, "Only day"),
+    (VISIT, "Only Visit"),
+    (NONE, "None"),
+)
+
+WITH_PARENTS = "WP"
+WITH_RELATIVES = "WR"
+ADOPTED_PARENTS = "AP"
+FOSTER_CARE = "FC"
+HOME_DISCHARGE_CHOICES = (
+    (WITH_PARENTS, "With parents"),
+    (WITH_RELATIVES, "With relatives"),
+    (ADOPTED_PARENTS, "Adopted parents"),
+    (FOSTER_CARE, "Foster care"),
+    (NOT_APPLICABLE, "N/A"),
+)
+
+NEGATIVE = "N"
+POST_TREATED = "PT"
+POST_UNTREATED = "PU"
+UNKNOWN = "UK"
+SYPHILIS_CHOICES = (
+    (NEGATIVE, "Negative"),
+    (POST_TREATED, "+ Treated"),
+    (POST_UNTREATED, "+ Untreated"),
+    (UNKNOWN, "Unknown"),
+)
+
+HIGH = "H"
+TSH_CHOICES = (
+    (NORMAL, "Normal"),
+    (HIGH, "High"),
+    (UNKNOWN, "Unknown"),
+)
+
+DEFICIT = "D"
+HEARING_CHOICES = (
+    (NORMAL, "Normal"),
+    (DEFICIT, "Deficit"),
+    (UNKNOWN, "Unknown"),
+)
+
+ABNORMAL = "AN"
+SICKLE_CELL_CHOICES = (
+    (NORMAL, "Normal"),
+    (ABNORMAL, "Abnormal"),
+    (UNKNOWN, "Unknown"),
+)
+
+BCG_CHOICES = (
+    (YES, "Yes"),
+    (NO, "No"),
+    (UNKNOWN, "Unknown"),
+)
+
+HEP_B_CHOICES = (
+    (YES, "Yes"),
+    (NO, "NO"),
+    (UNKNOWN, "Unknown"),
+)
+
+BREAST_FEEDING = (
+    (YES, "Yes"),
+    (NO, "No"),
+)
+
+BACK_TO_SLEEP = (
+    (YES, "Yes"),
+    (NO, "No"),
+)
+
+RESP_PREVENTION = (
+    (YES, "Yes"),
+    (NO, "No"),
+)
+
+HAND_HYGIENE = (
+    (YES, "Yes"),
+    (NO, "No"),
+)
+
+SOCIAL_PROTECTION = (
+    (YES, "Yes"),
+    (NO, "No"),
+)
+
+EDUCATIONAL_MATERIAL = (
+    (YES, "Yes"),
+    (NO, "No"),
 )
 
 
@@ -368,8 +482,211 @@ class SpecialCare(models.Model):
         max_length=4,
         null=True,
         blank=True,
-        help_text="ml Vol. total",
+        help_text="ml vol total",
     )
+    surg_pda = models.CharField("PDA", max_length=2, choices=YES_NO_CHOICES, default=NO)
+    surg_nec = models.CharField("NEC", max_length=2, choices=YES_NO_CHOICES, default=NO)
+    surg_rop = models.CharField("ROP", max_length=2, choices=YES_NO_CHOICES, default=NO)
+    surg_vp_sht = models.CharField(
+        "VP Shunt", max_length=2, choices=YES_NO_CHOICES, default=NO
+    )
+    surg_other = models.CharField(
+        "other", max_length=2, choices=YES_NO_CHOICES, default=NO
+    )
+    surg_other_details = models.CharField("other", max_length=50, null=True, blank=True)
+    lowest_weight = models.CharField(max_length=25, null=True, blank=True)
+    age_at_bw_recv = models.CharField(
+        "age at BW recovered", max_length=25, null=True, blank=True
+    )
+    at_36_wks_ga = models.CharField(
+        "at 36 weeks GA",
+        max_length=25,
+        null=True,
+        blank=True,
+        help_text="Copy growth/GA graph",
+    )
+    anthy_dschrg_weight = models.CharField(
+        "weight (g)", max_length=25, null=True, blank=True
+    )
+    anthy_dschag_length = models.CharField(
+        "length (cm)", max_length=25, null=True, blank=True
+    )
+    anthy_dschag_head_cir = models.CharField(
+        "weight (g)", max_length=25, null=True, blank=True
+    )
+    dschrg = models.CharField(
+        "discharge", max_length=2, choices=DISCHARGE_CHOICES, default=LIVE
+    )
+    dschrg_details = models.CharField(
+        "dia/mes/ano", max_length=25, null=True, blank=True
+    )
+    dschrg_post_mort = models.CharField(
+        "post mortem", max_length=2, choices=YES_NO_CHOICES, default=NO
+    )
+    dschrg_trans_plc = models.CharField("place", max_length=50, null=True, blank=True)
+    dschrg_trans_dies = models.CharField(
+        "Dies during transfer or at transfer place",
+        max_length=2,
+        choices=YES_NO_CHOICES,
+        default=NO,
+    )
+    dschrg_age = models.CharField(
+        "age", max_length=5, null=True, blank=True, help_text="DD"
+    )
+    dschrg_age_less_one_day = models.BooleanField("< 1 day", default=False)
+    dschrg_gest_age_correct = models.CharField(
+        "GEST AGE CORRECTED", max_length=5, null=True, blank=True, help_text="WW/D"
+    )
+    dschrg_feeding = models.CharField(
+        max_length=2, choices=FEEDING_CHOICES, default=BREAST
+    )
+    dschrg_room_in = models.CharField(
+        "rooming-in previous day",
+        max_length=2,
+        choices=ROOMING_IN_CHOICES,
+        default=NONE,
+    )
+    dschrg_at_home = models.CharField(
+        "home at discharge",
+        max_length=3,
+        choices=HOME_DISCHARGE_CHOICES,
+        default=WITH_PARENTS,
+    )
+    scrn_tst_syph = models.CharField(
+        "syphilis",
+        max_length=2,
+        choices=SYPHILIS_CHOICES,
+        default=NEGATIVE,
+    )
+    scrn_tst_tsh = models.CharField(
+        "TSH",
+        max_length=2,
+        choices=TSH_CHOICES,
+        default=NORMAL,
+    )
+    scrn_tst_hear = models.CharField(
+        "Hearing",
+        max_length=2,
+        choices=HEARING_CHOICES,
+        default=NORMAL,
+    )
+    scrn_tst_sickle = models.CharField(
+        "sickle cell",
+        max_length=2,
+        choices=SICKLE_CELL_CHOICES,
+        default=NORMAL,
+    )
+    scrn_tst_bcg = models.CharField(
+        "BCG",
+        max_length=2,
+        choices=BCG_CHOICES,
+        default=NEGATIVE,
+    )
+    scrn_tst_hep_b = models.CharField(
+        "Hep B",
+        max_length=2,
+        choices=HEP_B_CHOICES,
+        default=NEGATIVE,
+    )
+    h_prom_brst_feed = models.CharField(
+        "Exclusive breast feeding",
+        max_length=2,
+        choices=YES_NO_CHOICES,
+        default=YES,
+    )
+    h_prom_bck_slp = models.CharField(
+        "Back to sleep",
+        max_length=2,
+        choices=YES_NO_CHOICES,
+        default=YES,
+    )
+    h_prom_resp_prev = models.CharField(
+        "respivirius prevention",
+        max_length=2,
+        choices=YES_NO_CHOICES,
+        default=YES,
+    )
+    h_prom_hand_hygn = models.CharField(
+        "Hand hygiene/alcohol rub",
+        max_length=2,
+        choices=YES_NO_CHOICES,
+        default=YES,
+    )
+    h_prom_scl_prot = models.CharField(
+        "Social Protection/family rights",
+        max_length=2,
+        choices=YES_NO_CHOICES,
+        default=YES,
+    )
+    h_prom_edu_mat = models.CharField(
+        "educational material",
+        max_length=2,
+        choices=YES_NO_CHOICES,
+        default=YES,
+    )
+    health_prom_details = models.TextField(
+        "Health Promotion",
+        blank=True,
+        null=True,
+    )
+    dschrg_ind_prscrb_by = models.CharField(
+        "prescribed by", max_length=50, null=True, blank=True
+    )
+
+    dschrg_ind_prscrb_phn = models.CharField("phone", max_length=50, null=True)
+    dschrg_ind_prscrb_email = models.EmailField("email", blank=True, null=True)
+    dschrg_ind_prscrb_details = models.TextField(null=True,blank=True)
+    follow_up_ped = models.CharField(
+        "Pediatric",
+        max_length=2,
+        choices=YES_NO_CHOICES,
+        default=NO,
+    )
+    follow_up_ped_plc = models.CharField("place", max_length=100, null=True, blank=True)
+    follow_up_ped_phn = models.CharField("phone", max_length=100, null=True, blank=True)
+    follow_up_ped_dt = models.DateField("date", null=True, blank=True)
+    follow_up_eye = models.CharField(
+        "eye doctor",
+        max_length=2,
+        choices=YES_NO_CHOICES,
+        default=NO,
+    )
+    follow_up_eye_plc = models.CharField("place", max_length=100, null=True, blank=True)
+    follow_up_eye_phn = models.CharField("phone", max_length=100, null=True, blank=True)
+    follow_up_eye_dt = models.DateField("date", null=True, blank=True)
+    follow_up_hear = models.CharField(
+        "hearing test",
+        max_length=2,
+        choices=YES_NO_CHOICES,
+        default=NO,
+    )
+    follow_up_hear_plc = models.CharField(
+        "place", max_length=100, null=True, blank=True
+    )
+    follow_up_hear_phn = models.CharField(
+        "phone", max_length=100, null=True, blank=True
+    )
+    follow_up_hear_dt = models.DateField("date", null=True, blank=True)
+    follow_up_psych = models.CharField(
+        "psychosocial support",
+        max_length=2,
+        choices=YES_NO_CHOICES,
+        default=NO,
+    )
+    follow_up_psych_plc = models.CharField(
+        "place", max_length=100, null=True, blank=True
+    )
+    follow_up_psych_phn = models.CharField(
+        "phone", max_length=100, null=True, blank=True
+    )
+    follow_up_psych_dt = models.DateField("date", null=True, blank=True)
+    follow_up_mthr_sty_hm = models.CharField(
+        "how long the mother will be free to stay at home all day",
+        max_length=2,
+        null=True,
+        blank=True,
+    )
+    follow_up_mthr_sty_hm_fr_wks = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.name}"
