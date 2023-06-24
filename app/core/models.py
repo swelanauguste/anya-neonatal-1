@@ -175,7 +175,7 @@ BCG_CHOICES = (
 
 HEP_B_CHOICES = (
     (YES, "Yes"),
-    (NO, "NO"),
+    (NO, "No"),
     (UNKNOWN, "Unknown"),
 )
 
@@ -255,7 +255,7 @@ class SpecialCare(models.Model):
         "Transport Type", max_length=1, choices=TRANSPORT_TYPE_CHOICES, default=LAND
     )
     trans_km = models.CharField(
-        "distance", max_length=4, null=True, blank=True, help_text="KM"
+        "distance", max_length=4, null=True, blank=True, help_text="KM", default=0
     )
     trans_dura = models.CharField(
         "duration",
@@ -263,6 +263,7 @@ class SpecialCare(models.Model):
         null=True,
         blank=True,
         help_text="HH/MM | (02/45) | 2 hrs 45 mins",
+        default=0
     )
     incubator = models.CharField(
         "Incubator", max_length=1, choices=YES_NO_CHOICES, default=NO
@@ -280,7 +281,7 @@ class SpecialCare(models.Model):
         "Drugs", max_length=1, choices=YES_NO_CHOICES, default=NO
     )
     drugs = models.TextField("drugs", null=True, blank=True)
-    iv_vol = models.CharField("I/V Volume", max_length=3, null=True, blank=True)
+    iv_vol = models.CharField("I/V Volume", max_length=3, null=True, blank=True, default=0)
     iv_type = models.CharField("I/V Type", max_length=255, null=True, blank=True)
     trans_comp = models.CharField(
         "complication during transport",

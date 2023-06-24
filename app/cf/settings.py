@@ -13,7 +13,10 @@ SECRET_KEY = "django-insecure-b(@qsd8+03azi_&&a6yl2@1s__mdn(sim#_c7nm4%5f*17v*u3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["special-care.kingship.info"]
+
+CSRF_TRUSTED_ORIGINS = ["https://special-care.kingship.info"]
+
 
 
 # Application definition
@@ -96,7 +99,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "America/St_Lucia"
 
 USE_I18N = True
 
